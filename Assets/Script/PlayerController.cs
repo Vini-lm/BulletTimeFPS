@@ -1,42 +1,30 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField]private float eyeSpeed;
-    private Quaternion baseOrientation;
-    private float mouseH = 0;
-    private float mouseV = 0;
-    private Vector3 pos;
 
-
-
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private float speed = 5.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        baseOrientation = transform.localRotation;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        pos = new Vector3(Screen.width/2.0f,Screen.height/2.0f,Camera.main.nearClipPlane);  
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        mouseH += Input.GetAxis("Mouse X");
-        mouseV += Input.GetAxis("Mouse Y");
-        Quaternion rotX,rotY;
-        float angleY = mouseH * eyeSpeed;
-        float angleX = mouseV * eyeSpeed;
+        
+    }
 
-        rotY = Quaternion.AngleAxis(angleY,Vector3.up);
-        rotX = Quaternion.AngleAxis(angleX,Vector3.left);
-
-
-        transform.localRotation = baseOrientation * rotX * rotY;
-
-
-
+    public void ProcessMove(Vector2 input)
+    {
+        Vector3 moveDirection = Vector3.zero;
+        moveDirection.x = input.x;
+        moveDirection.z = input.y;
+        controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
     }
 }
