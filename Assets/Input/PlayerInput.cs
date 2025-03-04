@@ -123,6 +123,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""6dc8c64e-0383-40a7-91ee-9297618212b1"",
+                    ""path"": ""<HID:: USB Gamepad          >/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD"",
                     ""id"": ""f14630f1-26a1-48a2-b628-e1abec08e1d5"",
                     ""path"": ""2DVector"",
@@ -170,6 +181,61 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""right"",
                     ""id"": ""d7bfa425-bb85-4bdb-88c3-1c226fc4bb1b"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""GamePad"",
+                    ""id"": ""7a2e5b3e-dfee-4360-a63d-676341051b00"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""149a81a6-fb83-464a-8903-b779dfed73a9"",
+                    ""path"": ""<HID:: USB Gamepad          >/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8b8c25f4-74d7-46db-ad74-823ed8fe3d75"",
+                    ""path"": ""<HID:: USB Gamepad          >/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7f8af482-9acd-4395-9179-f93e5d3cdf6c"",
+                    ""path"": ""<HID:: USB Gamepad          >/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f62c791f-9591-4de7-bfa0-a7c1efadbe37"",
+                    ""path"": ""<HID:: USB Gamepad          >/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
