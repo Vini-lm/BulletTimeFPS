@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 playerVelocity;
+    private float speedBase;
     [SerializeField] private float speed;
     [SerializeField] private float gravity;
-    private bool isGrounded;
     [SerializeField] private float JumpAlt;
+    private bool isGrounded;
+    private bool isSprinting;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
         speed = 5.0f;
         gravity = -9.81f;
         JumpAlt = 2.5f;
+        speedBase = speed;
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log(playerVelocity.y);
         //Debug.Log(isGrounded);
+        //Debug.Log(isSprinting);
 
 
     }
@@ -53,5 +57,18 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = Mathf.Sqrt(2 * JumpAlt * -gravity); // calcula velocidade incial do pulo
         }
+    }
+
+
+    public void Sprint(bool sprint)
+    {
+
+        isSprinting = sprint;
+
+        if (sprint)
+            speed = speedBase + 3.0f; //8.0f
+        else
+            speed = speedBase; //5.0f
+
     }
 }

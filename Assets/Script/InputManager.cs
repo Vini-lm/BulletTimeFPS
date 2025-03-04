@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         cameraController = GetComponent<CameraController>();
         onFoot.Jump.performed += temp => playerController.Jump();
+        
 
     }
 
@@ -25,9 +26,8 @@ public class InputManager : MonoBehaviour
     {
         playerController.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
         cameraController.RotateCamera(onFoot.CamMov.ReadValue<Vector2>());
-        {
+        SprintController();
 
-        }
     }
 
     private void OnEnable()
@@ -38,5 +38,13 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         onFoot.Disable();
+    }
+
+    private void SprintController()
+    {
+        if (onFoot.Sprint.ReadValue<float>() > 0)
+            playerController.Sprint(true);
+        else
+            playerController.Sprint(false);
     }
 }
