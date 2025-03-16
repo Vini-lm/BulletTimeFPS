@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float gravity;
     [SerializeField] private float JumpAlt;
+
+    [SerializeField] private GameObject gun;
     private bool isGrounded;
     private bool isSprinting;
 
@@ -70,5 +72,10 @@ public class PlayerController : MonoBehaviour
         else
             speed = speedBase; //5.0f
 
+    }
+
+    public void Shoot()
+    {
+        gun.GetComponent<ShootingSystem>().OnFire();
     }
 }

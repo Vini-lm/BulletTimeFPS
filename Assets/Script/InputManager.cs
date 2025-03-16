@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         cameraController = GetComponent<CameraController>();
         onFoot.Jump.performed += temp => playerController.Jump();
+        onFoot.Shoot.performed += temp => playerController.Shoot();
         
 
     }

@@ -12,7 +12,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -36,6 +36,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "f1943825-203a-4ea0-9b35-b78bd1e934f8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "d25f7a03-1eb9-4d13-a2fb-16c3c46bc108",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -205,6 +214,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69487417-64d1-479c-98dd-ec3cb7dcaf45",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
