@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
         moveDirection.z = input.y;
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime); // move o player de acordo com o input
 
-        playerVelocity.y += gravity * Time.deltaTime; // aplica a gravidade no player
-        controller.Move(playerVelocity * Time.deltaTime);
+        playerVelocity.y += gravity * Time.fixedDeltaTime; // aplica a gravidade no player
+        controller.Move(playerVelocity * Time.fixedDeltaTime);
 
         if (isGrounded && playerVelocity.y < 0) // "impede" a gravidade de atuar na velocidade do player se ele estiver no chão
             playerVelocity.y = -2.0f;
