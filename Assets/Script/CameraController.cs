@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
     public void Start()
     {
         camera = GetComponentInChildren<Camera>();
+         Cursor.lockState = CursorLockMode.Locked;
+         Cursor.visible = false;
     }
 
     public void RotateCamera(Vector2 input)
