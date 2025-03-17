@@ -124,6 +124,39 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742063131833475816}
   m_Enabled: 1
+--- !u!1 &6425238559084061434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af50ce2565b6bab6a33ed2e9821b7ce, type: 3}
+  m_PrefabInstance: {fileID: 6190868100864548779}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5935982635769231424}
+  - component: {fileID: 7346648524396957831}
+  m_Layer: 0
+  m_Name: 'S&W Model 29 (Missing Prefab with guid: 2af50ce2565b6bab6a33ed2e9821b7ce)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5935982635769231424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2af50ce2565b6bab6a33ed2e9821b7ce, type: 3}
+  m_PrefabInstance: {fileID: 6190868100864548779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425238559084061434}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.07312289, y: 0.22275476, z: 0.84750205, w: 0.47620758}
+  m_LocalPosition: {x: 1.2791104, y: 1.5901008, z: 1.573759}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5114509724087727901}
+  m_Father: {fileID: 5581562404936888639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &702950171225435150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,16 +536,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7346648524396957831}
   m_SourcePrefab: {fileID: 100100000, guid: 2af50ce2565b6bab6a33ed2e9821b7ce, type: 3}
---- !u!4 &5935982635769231424 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2af50ce2565b6bab6a33ed2e9821b7ce, type: 3}
-  m_PrefabInstance: {fileID: 6190868100864548779}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6425238559084061434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af50ce2565b6bab6a33ed2e9821b7ce, type: 3}
-  m_PrefabInstance: {fileID: 6190868100864548779}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7346648524396957831
 MonoBehaviour:
   m_ObjectHideFlags: 0
