@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject gun;
     private bool isGrounded;
     private bool isSprinting;
+    private CapsuleCollider collider;
 
 
     void Start()
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         gravity = -9.81f;
         JumpAlt = 2.5f;
         speedBase = speed;
+        collider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -76,6 +78,12 @@ public class PlayerController : MonoBehaviour
         gun.GetComponent<ShootingSystem>().OnFire();
         // animator.SetBool("Shooting", true);
 
+    }
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 
 }
