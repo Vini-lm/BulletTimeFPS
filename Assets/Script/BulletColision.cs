@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
 {
-    [SerializeField] private float destroyDelay = 0.1f;
-
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, destroyDelay);
+        EnemyController enemy = collision.gameObject.GetComponentInParent<EnemyController>();
+        Animator animator = collision.gameObject.GetComponentInParent<Animator>();
+        
+        if (enemy != null)
+        {
+            animator.SetBool("Killed", true);
+            Destroy(enemy.gameObject, 3f);
+            Destroy(gameObject);
+        }
     }
 }

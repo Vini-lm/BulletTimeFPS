@@ -3,54 +3,58 @@ using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
-
-
-    private CharacterController controller;
-    private Animator animator;
-    private Vector3 playerVelocity;
-    private float speedBase;
     [SerializeField] private float speed;
+    [SerializeField] private float acceleration = 10f;
+    [SerializeField] private float deceleration = 5f;
     [SerializeField] private float gravity;
     [SerializeField] private float JumpAlt;
 
     [SerializeField] private GameObject gun;
+    [SerializeField] private float fireRate = 0.35f;
+
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private Vector3 currentVelocity = Vector3.zero;
+    private float speedBase;
+    private float nextFireTime = 0f;
     private bool isGrounded;
     private bool isSprinting;
     private CapsuleCollider collider;
 
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        speed = 5.0f;
-        gravity = -9.81f;
-        JumpAlt = 2.5f;
         speedBase = speed;
+        gravity = -9.81f;
+        JumpAlt = 1.5f;
         collider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
         isGrounded = controller.isGrounded;
+
+        if (isGrounded && playerVelocity.y < 0)
+            playerVelocity.y = -2f;
+
+        playerVelocity.y += gravity * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
     public void ProcessMove(Vector2 input)
     {
-        bool isMoving = (input.x != 0 || input.y != 0);
+        Vector3 moveDirection = new Vector3(input.x, 0, input.y).normalized;
 
-        Vector3 moveDirection = new Vector3(input.x, 0, input.y);
-        controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
-
-        playerVelocity.y += gravity * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-
-        if (isGrounded && playerVelocity.y < 0)
-            playerVelocity.y = -2.0f;
-
-        animator.SetBool("Walk", isMoving);
+        if (moveDirection.magnitude > 0.1f)
+        {
+            currentVelocity = Vector3.Lerp(currentVelocity, transform.TransformDirection(moveDirection) * speed, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, deceleration * Time.deltaTime);
+        }
+        controller.Move(currentVelocity * Time.deltaTime);
     }
-
 
     public void Jump()
     {
@@ -60,30 +64,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public void Sprint(bool sprint)
     {
-
         isSprinting = sprint;
-
-        if (sprint)
-            speed = speedBase + 3.0f; //8.0f
-        else
-            speed = speedBase; //5.0f
-
+        speed = sprint ? speedBase + 3.0f : speedBase;
     }
 
     public void Shoot()
     {
-        gun.GetComponent<ShootingSystem>().OnFire();
-        // animator.SetBool("Shooting", true);
-
+        if (Time.time >= nextFireTime)
+        {
+            gun.GetComponent<ShootingSystem>().OnFire();
+            nextFireTime = Time.time + fireRate;
+        }
     }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.name);
-    }
-
 }

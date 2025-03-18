@@ -2,45 +2,61 @@ using UnityEngine;
 
 public class GlobalSlowMotion : MonoBehaviour
 {
-    [Header("Configurações")]
-    [Range(0.1f, 1f)]
-    public float slowMotionScale = 0.8f;
+    [SerializeField] private float slowMotionTimeScale = 0.05f;
+    [SerializeField] private AnimationCurve enterCurve = AnimationCurve.EaseInOut(0,0,1,1);
+    [SerializeField] private AnimationCurve exitCurve = AnimationCurve.EaseInOut(0,0,1,1);
+    [SerializeField] private float enterDuration = 1f;
+    [SerializeField] private float exitDuration = 0.5f;
+    [SerializeField] private AdaptiveMusicController musicController;
+
 
     private float originalTimeScale;
     private float originalFixedDeltaTime;
+    private float currentTimeScale;
+    private float transitionProgress;
+    private bool isInSlowMotion;
+    private float targetTimeScale;
 
     void Start()
     {
         originalTimeScale = Time.timeScale;
         originalFixedDeltaTime = Time.fixedDeltaTime;
+        currentTimeScale = originalTimeScale;
     }
 
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        bool isMoving = (horizontal != 0 || vertical != 0);
+        bool shouldCancelSlowMo = (horizontal != 0 || vertical != 0);
 
-        if (isMoving)
+        bool wantsSlowMotion = !shouldCancelSlowMo;
+        
+        if(wantsSlowMotion != isInSlowMotion)
         {
-            Time.timeScale = 1f;
+            isInSlowMotion = wantsSlowMotion;
+            transitionProgress = 0f;
+            targetTimeScale = isInSlowMotion ? slowMotionTimeScale : 1f;
         }
-        else
+
+        transitionProgress += Time.unscaledDeltaTime / (isInSlowMotion ? enterDuration : exitDuration);
+        transitionProgress = Mathf.Clamp01(transitionProgress);
+
+        float curveValue = isInSlowMotion ? 
+            enterCurve.Evaluate(transitionProgress) : 
+            exitCurve.Evaluate(transitionProgress);
+
+        currentTimeScale = Mathf.Lerp(
+            isInSlowMotion ? 1f : slowMotionTimeScale,
+            targetTimeScale,
+            curveValue
+        );
+
+        Time.timeScale = Mathf.Clamp(currentTimeScale, 0.01f, 1f);
+        Time.fixedDeltaTime = originalFixedDeltaTime * Time.timeScale;
+        if(musicController != null)
         {
-            Time.timeScale = slowMotionScale;
-        }
-
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
-
-        UpdateAnimatorsSpeed();
-    }
-
-    void UpdateAnimatorsSpeed()
-    {
-        Animator[] allAnimators = FindObjectsOfType<Animator>();
-        foreach (Animator animator in allAnimators)
-        {
-            animator.speed = Time.timeScale;
+            musicController.OnSlowMotionChanged(isInSlowMotion);
         }
     }
 

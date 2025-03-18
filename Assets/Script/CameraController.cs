@@ -23,10 +23,10 @@ public class CameraController : MonoBehaviour
         float mouseX = input.x;
         float mouseY = input.y;
 
-        xRotation -= mouseY * Time.deltaTime * ySense;
+        xRotation -= mouseY * UnityEngine.Time.deltaTime * ySense;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
         camera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSense);
+        transform.Rotate(Vector3.up * (mouseX * UnityEngine.Time.deltaTime) * xSense);
 
 
     }
