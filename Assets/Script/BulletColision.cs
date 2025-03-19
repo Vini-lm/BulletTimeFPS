@@ -6,7 +6,7 @@ public class BulletCollision : MonoBehaviour
     {
         EnemyController enemy = collision.gameObject.GetComponentInParent<EnemyController>();
         Animator animator = collision.gameObject.GetComponentInParent<Animator>();
-        
+
         if (enemy != null)
         {
             animator.SetBool("Killed", true);

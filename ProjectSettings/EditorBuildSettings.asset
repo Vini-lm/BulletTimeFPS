@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TelaInicial.unity
+    guid: 18e59c70686a2a34dac4931761cd4f88
+  - enabled: 1
+    path: Assets/Scenes/GameTerrain.unity
+    guid: 1fe5347427e543d4c99cc5e489ca6699
+  - enabled: 1
+    path: Assets/Scenes/Modo Treino.unity
+    guid: 8b08a031a5505264aaa78d3b2db82321
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 11114fe9a3a5ffc42a4bc83aff824139, type: 3}
   m_UseUCBPForAssetBundles: 0

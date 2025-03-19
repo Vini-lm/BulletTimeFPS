@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform playerPos;
     [SerializeField] private float minDistance = 5f;
     private Animator animator;
-    
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform muzzle;
@@ -18,28 +17,28 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         lastShotTime = -fireRate;
-        
-        agent.stoppingDistance = minDistance; 
+
+        agent.stoppingDistance = minDistance;
     }
 
     void Update()
     {
         agent.destination = playerPos.position;
 
-        if(agent.remainingDistance <= agent.stoppingDistance)
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
             FaceTarget();
         }
 
         animator.SetBool("Walk", agent.remainingDistance > agent.stoppingDistance);
-        
-        if(CanSeePlayer() && UnityEngine.Time.time >= lastShotTime + fireRate)
+
+        if (CanSeePlayer() && UnityEngine.Time.time >= lastShotTime + fireRate)
         {
             Shoot();
             lastShotTime = UnityEngine.Time.time;
         }
 
-        if(animator.GetBool("Killed"))
+        if (animator.GetBool("Killed"))
         {
             agent.isStopped = true;
             this.enabled = false;
@@ -51,8 +50,8 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = (playerPos.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(
-            transform.rotation, 
-            lookRotation, 
+            transform.rotation,
+            lookRotation,
             UnityEngine.Time.deltaTime * 5f
         );
     }
@@ -62,10 +61,10 @@ public class EnemyController : MonoBehaviour
         Vector3 directionToPlayer = (playerPos.position - muzzle.position).normalized;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
 
-        if(angle < 30f)
+        if (angle < 30f)
         {
             RaycastHit hit;
-            if(Physics.Raycast(muzzle.position, directionToPlayer, out hit, Mathf.Infinity))
+            if (Physics.Raycast(muzzle.position, directionToPlayer, out hit, Mathf.Infinity))
             {
                 return hit.collider.CompareTag("Player");
             }
@@ -75,7 +74,7 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
-        if(projectilePrefab && muzzle)
+        if (projectilePrefab && muzzle)
         {
             GameObject projectile = Instantiate(
                 projectilePrefab,
@@ -84,8 +83,13 @@ public class EnemyController : MonoBehaviour
             );
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            if(rb) rb.linearVelocity = (playerPos.position - muzzle.position).normalized * 20f;
+            if (rb) rb.linearVelocity = (playerPos.position - muzzle.position).normalized * 20f;
             Destroy(projectile, 3f);
         }
+    }
+
+    public void setPos(ref Transform playerPos)
+    {
+        this.playerPos = playerPos;
     }
 }

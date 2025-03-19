@@ -2915,7 +2915,7 @@ GameObject:
   - component: {fileID: 4499119352211708090}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: EnemyBot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2976,7 +2976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1beacc9a3749f8c4a826a013d4c68be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 1781791452411930597, guid: be2eab18047814465964e343da1d2adc, type: 3}
   minDistance: 5
   fireRate: 1.5
   projectilePrefab: {fileID: 6777940244215972483, guid: 1f1218269a31ec13a922d077f0c90249, type: 3}

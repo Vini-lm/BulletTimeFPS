@@ -78,4 +78,10 @@ public class PlayerController : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "EnemyBot")
+            GameObject.Destroy(this);
+    }
 }
