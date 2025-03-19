@@ -16,7 +16,7 @@ public class EnemySpawnner : MonoBehaviour
     private EnemyController enemyController;
     void Start()
     {
-        maxEnemies = 100;
+        maxEnemies = 50;
         ContBots = 0;
     }
 
