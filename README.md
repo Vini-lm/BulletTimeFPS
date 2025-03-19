@@ -1,6 +1,7 @@
 Links com os modelos:
-[Arma](https://sketchfab.com/3d-models/low-poly-sw-model-29-fab44e391c5d4201ba17ef2877482753#download)
+[Arma](https://free3d.com/3d-model/m9a1---low-poly-model-505455.html)
 [Personagem](https://drive.google.com/file/d/1FnNEQDp4baNk16jvbWIHF0WTffgrU-Gd/view)
+[Bala](https://poly.pizza/m/2_eJPKc_a_D)
 
 # Nomes
 
