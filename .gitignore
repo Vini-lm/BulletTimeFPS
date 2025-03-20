@@ -73,7 +73,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 Assets/**/ThirdParty/
-Assets/TerrainSampleAssets/
-Assets/HDRPDefaultResources/
+
 Assets/TextMesh Pro/
 Assets/TerrainDemoScene_URP/
