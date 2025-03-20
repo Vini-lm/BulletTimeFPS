@@ -2110,7 +2110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1781791452411930597, guid: be2eab18047814465964e343da1d2adc, type: 3}
   minDistance: 5
-  fireRate: 1.5
+  fireRate: 2
   projectilePrefab: {fileID: 3868905421760399003, guid: d170795347c6e9c1fbf983bb6f3932ad, type: 3}
   muzzle: {fileID: 6905748769375706428}
 --- !u!195 &4499119352211708090

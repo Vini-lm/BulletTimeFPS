@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform muzzle;
     private float lastShotTime;
+    [SerializeField] private float bulletSpeed = 10f;
 
     void Start()
     {
@@ -83,7 +84,7 @@ public class EnemyController : MonoBehaviour
             );
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
-            if (rb) rb.linearVelocity = (playerPos.position - muzzle.position).normalized * 20f;
+            if (rb) rb.linearVelocity = (playerPos.position - muzzle.position).normalized * bulletSpeed;
             Destroy(projectile, 3f);
         }
     }

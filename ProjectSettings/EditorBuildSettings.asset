@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/GameTerrain.unity
     guid: 1fe5347427e543d4c99cc5e489ca6699
   - enabled: 1
-    path: Assets/Scenes/Modo Treino.unity
-    guid: 8b08a031a5505264aaa78d3b2db82321
+    path: Assets/Scenes/FaseUm.unity
+    guid: e24efa4f8ba6568af872289f1dc4fbb6
+  - enabled: 1
+    path: Assets/Scenes/FaseDois.unity
+    guid: cae6418f09d400a2c97d6feae41d707e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 11114fe9a3a5ffc42a4bc83aff824139, type: 3}
   m_UseUCBPForAssetBundles: 0
