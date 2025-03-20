@@ -3,12 +3,10 @@ using UnityEngine.InputSystem;
 
 public class ShootingSystem : MonoBehaviour
 {
-    [Header("Bullet Settings")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform muzzle;
     [SerializeField] private float bulletSpeed = 30f;
 
-    [Header("Audio Settings")]
     [SerializeField] private AudioClip shootSound;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private bool useTimeScaledPitch = true; 
