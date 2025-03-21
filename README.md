@@ -44,7 +44,7 @@ Inspirado no inovador **SuperHot**, **Bullet Time** é um jogo onde **o tempo ob
 | 🎵 Música *"The Rebel Path"* | [YouTube](https://www.youtube.com/watch?v=bhF3O1xCBW4) |
 | 🔤 Fonte *Soda Shake* | [Dafont](https://www.dafont.com/soda-shake.font?text=Bullet+Time) |
 | 🔤 Fonte *Coffee Spark* | [Dafont](https://www.dafont.com/coffee-spark.font?text=press+any+button) |
-| 🎨 Unity Terrain | [[AssetStore](https://assetstore.unity.com/packages/3d/environments/unity-terrain-urp-demo-scene-213197) |
+| 🎨 Unity Terrain | [AssetStore](https://assetstore.unity.com/packages/3d/environments/unity-terrain-urp-demo-scene-213197) |
 
 ---
 
